@@ -1,0 +1,6 @@
+{
+  "name": "My Notes",
+  "description": "A modern, beautiful, and tactile landing page for My Notes - a clean and minimal notes and productivity application.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
