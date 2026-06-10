@@ -58,7 +58,9 @@ function AppContent() {
           onNavigateToHome={() => navigateTo("landing")}
           onSuccess={() => {
             // Success handler runs; AuthProvider automatically updates the user state,
-            // which redirects them to the <Dashboard /> above
+            // which redirects them to the <Dashboard /> above.
+            // Reset hash routing to landing, keeping URLs clean.
+            navigateTo("landing");
           }}
         />
       </div>
@@ -72,7 +74,9 @@ function AppContent() {
           onNavigateToLogin={() => navigateTo("login")}
           onNavigateToHome={() => navigateTo("landing")}
           onSuccess={() => {
-            // Success handler runs; AuthProvider updates state, triggering redirect
+            // Success handler runs; AuthProvider updates state, triggering redirect.
+            // Reset hash routing to landing, keeping URLs clean.
+            navigateTo("landing");
           }}
         />
       </div>

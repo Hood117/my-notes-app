@@ -514,6 +514,7 @@ export default function Dashboard() {
   const handleSignOut = async () => {
     if (confirm("Are you sure you want to sign out of your workstation?")) {
       await signOut();
+      window.location.hash = ""; // Direct back to landing page
     }
   };
 
