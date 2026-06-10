@@ -84,7 +84,7 @@ export const FEATURES: FeatureItem[] = [
     id: "feat-sync",
     title: "Secure Cloud Sync",
     description: "Access your thoughts on phone, tablet, or web browser. Automatic offline drafts with background syncing to prevent data loss.",
-    badge: "Auto-Save",
+    badge: "Cloud Sync",
     category: "Cloud"
   },
   {
@@ -93,6 +93,48 @@ export const FEATURES: FeatureItem[] = [
     description: "Designed strictly with light and fast load times. Built with keyboard shortcut support, touch-optimized gestures, and standard offline-first architecture.",
     badge: "Responsive Design",
     category: "Performance"
+  },
+  {
+    id: "feat-google-auth",
+    title: "Google Sign-In",
+    description: "Instantly sign in securely with your Google account. Zero passwords to remember, zero registration friction.",
+    badge: "Seamless Auth",
+    category: "Security"
+  },
+  {
+    id: "feat-collaboration",
+    title: "Multi-User Collaboration",
+    description: "Share notes with team members or friends in seconds. Set granular permission roles like Viewer or Editor for total control.",
+    badge: "Teamwork",
+    category: "Collaboration"
+  },
+  {
+    id: "feat-presence",
+    title: "Live Presence & Cursors",
+    description: "See active collaborator avatars at the top and track their text cursors on the screen in real-time.",
+    badge: "Supabase Realtime",
+    category: "Real-Time"
+  },
+  {
+    id: "feat-rich-text",
+    title: "Rich Text Editing",
+    description: "Format notes beautifully with bold header styles, code listings, lists, quotes, and custom structured details.",
+    badge: "WYSIWYG Editor",
+    category: "UI/UX"
+  },
+  {
+    id: "feat-autosave",
+    title: "Smart Auto-Save",
+    description: "Your edits are saved as you type without lag. Experience real-time backup on every keystroke and sync state tracking.",
+    badge: "Reliability",
+    category: "Content"
+  },
+  {
+    id: "feat-attachments",
+    title: "File Attachments",
+    description: "Seamlessly attach document files, PDFs, slides, assets, or images directly to any note with automatic download and quick-delete controls.",
+    badge: "Secure Storage",
+    category: "Storage"
   }
 ];
 

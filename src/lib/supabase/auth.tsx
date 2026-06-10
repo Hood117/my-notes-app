@@ -15,6 +15,7 @@ interface AuthContextType {
   isDemoMode: boolean;
   signUp: (email: string, password: string, name: string) => Promise<{ error: string | null; user: any }>;
   signIn: (email: string, password: string) => Promise<{ error: string | null; user: any }>;
+  signInWithGoogle: () => Promise<{ error: string | null }>;
   signOut: () => Promise<{ error: string | null }>;
 }
 
@@ -175,6 +176,56 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  // Handle Google OAuth sign in
+  const signInWithGoogle = async () => {
+    setLoading(true);
+    try {
+      if (isSupabaseConfigured && supabase) {
+        const { error } = await supabase.auth.signInWithOAuth({
+          provider: "google",
+          options: {
+            redirectTo: window.location.origin,
+          },
+        });
+        if (error) return { error: error.message };
+        return { error: null };
+      } else {
+        // Local simulation / Sandbox Mocking
+        const rawUsers = localStorage.getItem(LOCAL_USERS_KEY);
+        const users = rawUsers ? JSON.parse(rawUsers) : [];
+        let foundUser = users.find((u: any) => u.email === "google-user@example.com");
+
+        if (!foundUser) {
+          foundUser = {
+            id: `sand-google-${Date.now()}`,
+            email: "google-user@example.com",
+            name: "Google Sandbox User",
+            createdAt: new Date().toISOString(),
+            provider: "sandbox",
+          };
+          users.push(foundUser);
+          localStorage.setItem(LOCAL_USERS_KEY, JSON.stringify(users));
+        }
+
+        const loggedProfile: UserProfile = {
+          id: foundUser.id,
+          email: foundUser.email,
+          name: foundUser.name,
+          createdAt: foundUser.createdAt,
+          provider: "sandbox",
+        };
+
+        localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(loggedProfile));
+        setUser(loggedProfile);
+        return { error: null };
+      }
+    } catch (e: any) {
+      return { error: e.message || "An unexpected error occurred during Google Sign In." };
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Handle signing out
   const signOut = async () => {
     setLoading(true);
@@ -195,7 +246,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, isDemoMode, signUp, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, loading, isDemoMode, signUp, signIn, signInWithGoogle, signOut }}>
       {children}
     </AuthContext.Provider>
   );

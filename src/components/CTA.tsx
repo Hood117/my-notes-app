@@ -37,12 +37,12 @@ export default function CTA() {
               Instant Free Access
             </span>
 
-            <h2 className="font-display text-3xl sm:text-4px md:text-5xl font-bold tracking-tight mb-2 leading-tight">
-              Start Taking Better Notes Today
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-2 leading-tight">
+              Start Collaborating with My Notes Premium
             </h2>
             
-            <p className="text-xs sm:text-sm text-neutral-400 font-sans max-w-md mx-auto leading-relaxed">
-              Join thousands of builders, designers, and students writing, organizing, and syncing their core thoughts with My Notes.
+            <p className="text-xs sm:text-sm text-neutral-400 font-sans max-w-lg mx-auto leading-relaxed">
+              Unlock real-time collaborative productivity, lightning-fast Google Sign-In, and secure file management. Write, attach, share, and design your team's thoughts in perfect sync.
             </p>
 
             {submitted ? (
@@ -53,7 +53,7 @@ export default function CTA() {
               >
                 <CheckCircle2 className="text-emerald-400" size={18} />
                 <span className="text-xs sm:text-xs text-emerald-200 font-semibold text-left">
-                  Success! Account created. Welcome to our productivity workspace.
+                  Success Check! Please verify your inbox to activate premium features.
                 </span>
               </motion.div>
             ) : (
@@ -73,19 +73,28 @@ export default function CTA() {
                   type="submit"
                   className="bg-white hover:bg-neutral-100 text-neutral-950 font-semibold py-3 px-6 rounded-xl text-xs transition-colors hover:shadow-lg focus:outline-none focus:scale-98 cursor-pointer shrink-0"
                 >
-                  Create Free Account
+                  Create Premium Account
                 </button>
               </form>
             )}
 
-            {/* Simulated Sign In triggers */}
-            <div className="pt-4 flex items-center justify-center gap-2">
-              <span className="text-[11px] text-neutral-500 font-medium">Already have an active account?</span>
+            {/* Simulated Sign In triggers linked to actual hash route router */}
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] text-neutral-500 font-medium">Already have an active account?</span>
+                <button
+                  onClick={() => { window.location.hash = "#/login"; }}
+                  className="text-[11px] text-white hover:text-blue-400 font-bold underline cursor-pointer"
+                >
+                  Sign In
+                </button>
+              </div>
+              <span className="hidden sm:inline text-neutral-700">|</span>
               <button
-                onClick={() => alert("Simulated Sign In - This version focuses on frontend layout design.")}
-                className="text-[11px] text-white hover:text-blue-400 font-bold underline cursor-pointer"
+                onClick={() => { window.location.hash = "#/login"; }}
+                className="inline-flex items-center gap-1.5 text-[11px] text-neutral-300 hover:text-white font-medium bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-full hover:bg-neutral-850 duration-200 transition-all"
               >
-                Sign In
+                <span>🚀 Sign in with Google</span>
               </button>
             </div>
 

@@ -1,7 +1,7 @@
-import { LayoutGrid, Star, Clock, Settings } from "lucide-react";
+import { LayoutGrid, Star, Archive, Settings, Trash2, Users } from "lucide-react";
 import { ReactNode } from "react";
 
-export type NavTab = "all" | "starred" | "recent" | "settings";
+export type NavTab = "all" | "starred" | "shared" | "archive" | "settings" | "trash";
 
 interface BottomNavProps {
   activeTab: NavTab;
@@ -13,10 +13,11 @@ export default function BottomNav({ activeTab, onTabChange, centerButton }: Bott
   const navItems = [
     { id: "all" as const, label: "Workspace", icon: LayoutGrid },
     { id: "starred" as const, label: "Starred", icon: Star },
+    { id: "shared" as const, label: "Shared", icon: Users },
     // empty placeholder slot for the central AddButton to prevent overlaying text
     { id: "center-gap" as const, label: "", icon: null },
-    { id: "recent" as const, label: "Recent", icon: Clock },
-    { id: "settings" as const, label: "Settings", icon: Settings },
+    { id: "archive" as const, label: "Archived", icon: Archive },
+    { id: "trash" as const, label: "Trash", icon: Trash2 },
   ];
 
   return (

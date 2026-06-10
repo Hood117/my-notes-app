@@ -2,10 +2,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { SAMPLE_NOTES } from "../data";
 import { NoteCard } from "../types";
-import { Palette, Search, Star, Smartphone, Laptop, Sparkles, Pin, CheckCircle } from "lucide-react";
+import { Palette, Search, Star, Smartphone, Laptop, Sparkles, Pin, CheckCircle, Users, MousePointer, Paperclip } from "lucide-react";
 
 export default function DashboardPreview() {
-  const [activeTab, setActiveTab] = useState<"cards" | "search" | "favorites" | "sync">("cards");
+  const [activeTab, setActiveTab] = useState<"cards" | "search" | "favorites" | "sync" | "collaboration">("cards");
   const [localNotes, setLocalNotes] = useState<NoteCard[]>(SAMPLE_NOTES);
   const [previewSearch, setPreviewSearch] = useState("");
 
@@ -14,6 +14,7 @@ export default function DashboardPreview() {
     { id: "search", label: "Smart Search", icon: <Search size={14} />, desc: "Find words instantly" },
     { id: "favorites", label: "Favorites & Pins", icon: <Star size={14} />, desc: "Pin key actions" },
     { id: "sync", label: "Multi-Device", icon: <Smartphone size={14} />, desc: "Cloud synced frames" },
+    { id: "collaboration", label: "Real-time Collab", icon: <Users size={14} />, desc: "Shared note session" },
   ] as const;
 
   const handleFavoriteToggle = (id: string) => {
@@ -294,6 +295,132 @@ export default function DashboardPreview() {
                     <div className="flex items-center gap-2 mt-2">
                       <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                       <span className="text-[11px] font-mono text-neutral-400">Conflict-free resolution enabled</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {activeTab === "collaboration" && (
+              <motion.div
+                key="collaboration-tour"
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-6"
+              >
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white/60 p-5 rounded-2xl border border-neutral-100 mb-2">
+                  <div>
+                    <h3 className="font-display font-bold text-neutral-900 text-lg flex items-center gap-1.5">
+                      <Users size={16} className="text-blue-600 animate-pulse" />
+                      Live Shared Notes Session
+                    </h3>
+                    <p className="text-xs text-neutral-500 mt-1">
+                      See collaborator cursors, rich text revisions, and attachments working in perfect sync with zero-latency Supabase channels.
+                    </p>
+                  </div>
+                  <span className="text-[10px] font-mono text-neutral-400 bg-neutral-100 px-2 py-1 rounded">
+                    ⚡ Live Collaboration Mockup
+                  </span>
+                </div>
+
+                <div className="bg-white border border-neutral-200 rounded-3xl p-6 shadow-md relative overflow-hidden max-w-2xl mx-auto min-h-[340px]">
+                  {/* Top Bar with Collaborator Avatars */}
+                  <div className="flex items-center justify-between pb-4 border-b border-neutral-100 mb-4 select-none">
+                    <div className="flex items-center gap-1.5 text-left">
+                      <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider">
+                        3 collaborators active
+                      </span>
+                    </div>
+
+                    {/* Avatar Stacks */}
+                    <div className="flex -space-x-1.5 overflow-hidden">
+                      <div className="inline-block h-6 w-6 rounded-full border-2 border-white bg-blue-500 text-white text-[9px] font-bold flex items-center justify-center shadow-xs" title="John Doe">JD</div>
+                      <div className="inline-block h-6 w-6 rounded-full border-2 border-white bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center shadow-xs" title="Jane Smith">JS</div>
+                      <div className="inline-block h-6 w-6 rounded-full border-2 border-white bg-purple-500 text-white text-[9px] font-bold flex items-center justify-center shadow-xs" title="Alice Carter">AC</div>
+                    </div>
+                  </div>
+
+                  {/* Editors Format Options Bar */}
+                  <div className="flex items-center gap-4 py-1.5 px-3 bg-neutral-50 rounded-xl border border-neutral-200/60 mb-4 text-xs text-neutral-400 font-mono">
+                    <span className="font-bold text-neutral-700">H1</span>
+                    <span className="font-bold text-neutral-700">H2</span>
+                    <span className="font-bold text-neutral-700">B</span>
+                    <span className="italic text-neutral-700">I</span>
+                    <span className="underline text-neutral-700">U</span>
+                    <span className="text-neutral-300">|</span>
+                    <span className="flex items-center gap-1 text-[10px] text-neutral-600 font-sans font-semibold">
+                      <Paperclip size={11} /> 2 Files Attached
+                    </span>
+                  </div>
+
+                  {/* Document Body with Live Cursors representation */}
+                  <div className="text-left space-y-4 relative min-h-[160px]">
+                    <span className="text-[9px] font-bold tracking-wider uppercase px-2 py-0.5 bg-neutral-100 text-neutral-600 rounded-full">
+                      Strategy Briefing
+                    </span>
+                    <h4 className="font-display font-extrabold text-neutral-900 text-lg leading-tight">
+                      🚀 Q3 Launch Strategy Briefing
+                    </h4>
+                    
+                    <div className="text-xs text-neutral-800 leading-relaxed font-sans space-y-3">
+                      <p>
+                        We are launching our referral reward campaign across 4 key channels. Please make sure to download the attached brief!
+                      </p>
+                      
+                      {/* Rich Text Representation - Bullet points */}
+                      <ul className="list-disc pl-4 space-y-1.5 text-neutral-700">
+                        <li>Ensure all brand graphics are exported in high-res format.</li>
+                        <li>Sync the Google Auth flow with early beta subscribers.</li>
+                      </ul>
+                    </div>
+
+                    {/* Floating labeled text cursors for presentation */}
+                    {/* Live Cursor 1 */}
+                    <div className="absolute top-[35%] left-[45%] pointer-events-none flex flex-col items-start gap-1">
+                      <svg width="12" height="15" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.5 1.5V17.5L5.0 13.0H12.5L0.5 1.5Z" fill="#3B82F6" stroke="white" strokeWidth="1.5" />
+                      </svg>
+                      <div className="bg-blue-600 text-[8px] font-bold text-white px-1.5 py-0.5 rounded-md shadow">
+                        John Doe
+                      </div>
+                    </div>
+
+                    {/* Live Cursor 2 */}
+                    <div className="absolute top-[75%] left-[80%] pointer-events-none flex flex-col items-start gap-1">
+                      <svg width="12" height="15" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.5 1.5V17.5L5.0 13.0H12.5L0.5 1.5Z" fill="#10B981" stroke="white" strokeWidth="1.5" />
+                      </svg>
+                      <div className="bg-emerald-600 text-[8px] font-bold text-white px-1.5 py-0.5 rounded-md shadow">
+                        Jane Smith (Typing...)
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Attachment Preview representation */}
+                  <div className="mt-6 pt-4 border-t border-neutral-150 text-left">
+                    <span className="block text-[9px] font-bold text-neutral-400 uppercase tracking-wider mb-2">
+                      Attachments (1)
+                    </span>
+                    <div className="flex items-center justify-between gap-3 bg-neutral-50 border border-neutral-200/60 p-2.5 rounded-xl text-xs">
+                      <div className="flex items-center gap-2 min-w-0">
+                        <div className="p-1.5 bg-blue-50 text-blue-600 rounded-lg">
+                          <Paperclip size={12} />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="font-bold text-neutral-800 text-[11px] truncate leading-tight">
+                            q3_launch_deck_presentation.pdf
+                          </p>
+                          <p className="text-[9px] text-neutral-450 font-mono mt-0.5">
+                            3.8 MB
+                          </p>
+                        </div>
+                      </div>
+                      <span className="text-[10px] text-blue-600 font-bold bg-blue-50/50 hover:bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-100 cursor-pointer">
+                        Download
+                      </span>
                     </div>
                   </div>
                 </div>

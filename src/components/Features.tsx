@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { FolderKanban, Search, Star, CloudLightning, Zap, ChevronRight, Hash, Sparkles } from "lucide-react";
+import { FolderKanban, Search, Star, CloudLightning, Zap, ChevronRight, Hash, Sparkles, UserCheck, Users, MousePointer, Type, Save, Paperclip } from "lucide-react";
 import { FEATURES } from "../data";
 
 export default function Features() {
@@ -16,6 +16,18 @@ export default function Features() {
         return <CloudLightning className="text-violet-600" size={24} />;
       case "feat-responsive":
         return <Zap className="text-rose-500" size={24} />;
+      case "feat-google-auth":
+        return <UserCheck className="text-cyan-600" size={24} />;
+      case "feat-collaboration":
+        return <Users className="text-emerald-600" size={24} />;
+      case "feat-presence":
+        return <MousePointer className="text-orange-500" size={24} />;
+      case "feat-rich-text":
+        return <Type className="text-blue-500" size={24} />;
+      case "feat-autosave":
+        return <Save className="text-pink-500" size={24} />;
+      case "feat-attachments":
+        return <Paperclip className="text-amber-600" size={24} />;
       default:
         return <FolderKanban className="text-blue-600" size={24} />;
     }
@@ -68,12 +80,12 @@ export default function Features() {
       case "feat-sync":
         return (
           <div className="mt-5 flex items-center justify-center gap-3">
-            <div className="text-[10px] font-mono text-neutral-500 px-2 py-1 bg-emerald-50 border border-emerald-100/60 text-emerald-800 rounded-lg">
+            <div className="text-[10px] font-mono text-neutral-500 px-2 py-1 bg-emerald-50 border border-emerald-100/60 text-emerald-800 rounded-lg animate-pulse">
               Saved offline locally
             </div>
             <span className="text-xs text-neutral-400">→</span>
             <div className="text-[10px] font-mono text-neutral-500 px-2 py-1 bg-blue-50 border border-blue-100/60 text-blue-800 rounded-lg">
-              Synchronized global cloud
+              Synchronized cloud
             </div>
           </div>
         );
@@ -86,6 +98,56 @@ export default function Features() {
             <span className="text-[10px] font-mono font-semibold text-neutral-400 bg-neutral-100/80 px-2 py-0.5 rounded-md">
               Keyboard shortcut navigation
             </span>
+          </div>
+        );
+      case "feat-google-auth":
+        return (
+          <div className="mt-5 p-2 bg-white border border-neutral-150 rounded-xl shadow-xs text-xs font-sans flex items-center gap-2 group-hover:bg-neutral-50/50 transition-all">
+            <span className="w-4 h-4 bg-red-100 rounded-full flex items-center justify-center font-extrabold text-[9px] text-red-600">G</span>
+            <span className="text-neutral-700 font-bold text-[11px]">Google Single Sign-On Active</span>
+          </div>
+        );
+      case "feat-collaboration":
+        return (
+          <div className="mt-5 flex items-center -space-x-1 px-1">
+            <span className="w-6 h-6 rounded-full bg-blue-500 text-white text-[9px] flex items-center justify-center font-bold border-2 border-white shadow-xs">JD</span>
+            <span className="w-6 h-6 rounded-full bg-emerald-500 text-white text-[9px] flex items-center justify-center font-bold border-2 border-white shadow-xs">AL</span>
+            <span className="w-6 h-6 rounded-full bg-pink-500 text-white text-[9px] flex items-center justify-center font-bold border-2 border-white shadow-xs">RB</span>
+            <span className="text-[10px] text-neutral-400 font-medium ml-3">+ 3 team editors</span>
+          </div>
+        );
+      case "feat-presence":
+        return (
+          <div className="mt-5 flex items-center gap-1.5">
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-orange-50 text-orange-600 border border-orange-100/60 rounded-md text-[9px] font-mono animate-pulse">
+              <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+              <span>Realtime Cursors On</span>
+            </div>
+          </div>
+        );
+      case "feat-rich-text":
+        return (
+          <div className="mt-5 flex gap-1 items-center">
+            <span className="px-1.5 py-0.5 bg-neutral-100/80 rounded font-bold text-[10px] text-neutral-600 font-mono">B</span>
+            <span className="px-1.5 py-0.5 bg-neutral-100/80 rounded italic text-[10px] text-neutral-600 font-mono">I</span>
+            <span className="px-1.5 py-0.5 bg-neutral-100/80 rounded line-through text-[10px] text-neutral-600 font-mono">S</span>
+            <span className="px-1.5 py-0.5 bg-neutral-100/80 rounded text-[10px] text-neutral-600 font-mono">H1</span>
+            <span className="px-1.5 py-0.5 bg-neutral-100/80 rounded text-[10px] text-neutral-600 font-mono">Code</span>
+          </div>
+        );
+      case "feat-autosave":
+        return (
+          <div className="mt-5 flex items-center gap-1.5 text-[10px] text-neutral-400 font-mono font-medium">
+            <span className="text-emerald-600 font-bold mb-0.5">✔</span>
+            <span>All edits auto-saved dynamically</span>
+          </div>
+        );
+      case "feat-attachments":
+        return (
+          <div className="mt-5 flex items-center gap-1.5 px-2 py-1.5 bg-neutral-50/50 border border-neutral-150 rounded-xl text-[10px] text-neutral-600 font-medium font-sans">
+            <Paperclip size={10} className="text-neutral-400" />
+            <span className="truncate">project_briefing_q3.pdf</span>
+            <span className="text-neutral-400 font-mono ml-auto">1.4 MB</span>
           </div>
         );
       default:
@@ -115,7 +177,12 @@ export default function Features() {
         <div className="grid grid-cols-1 md:grid-cols-6 gap-6" id="features-bento-grid">
           {FEATURES.map((feature, idx) => {
             // Distribute layout: Some features get 3 columns, some get 2 for modern asymmetrical bento system
-            const columnSpan = idx === 0 || idx === 3 ? "md:col-span-3" : "md:col-span-2";
+            let columnSpan = "md:col-span-2";
+            if (idx === 0 || idx === 1 || idx === 5 || idx === 6) {
+              columnSpan = "md:col-span-3";
+            } else if (idx === 10) {
+              columnSpan = "md:col-span-6";
+            }
             return (
               <motion.div
                 key={feature.id}

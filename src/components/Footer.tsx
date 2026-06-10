@@ -8,14 +8,22 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-10 border-b border-neutral-800">
           
-          {/* Footer Logo block */}
-          <div className="flex items-center gap-2.5">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-500 text-white shadow-md">
-              <NotebookPen size={15} className="stroke-[2.5]" />
+          {/* Footer Logo block with Premium Summary */}
+          <div className="flex flex-col items-start gap-2.5 max-w-sm">
+            <div className="flex items-center gap-2.5">
+              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-500 text-white shadow-md">
+                <NotebookPen size={15} className="stroke-[2.5]" />
+              </div>
+              <span className="font-display font-bold text-lg text-white tracking-tight flex items-center">
+                My Notes
+                <span className="text-[9px] font-sans font-extrabold bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/25 ml-2 uppercase tracking-wider">
+                  Premium
+                </span>
+              </span>
             </div>
-            <span className="font-display font-bold text-lg text-white tracking-tight">
-              My Notes
-            </span>
+            <p className="text-[11px] text-neutral-500 leading-relaxed font-sans text-left">
+              An elegant modular notes client enriched with real-time team collaboration, live text cursors, Google auth, and cloud document attachments.
+            </p>
           </div>
 
           {/* Footer Legal/Navigation Links */}
@@ -38,49 +46,37 @@ export default function Footer() {
             >
               Pricing
             </a>
-            <button
-              onClick={() => alert("Simulation: Privacy Policy details")}
-              className="hover:text-white transition-colors bg-transparent border-0 cursor-pointer"
-            >
-              Privacy
-            </button>
-            <button
-              onClick={() => alert("Simulation: Terms & Conditions detailed clause")}
-              className="hover:text-white transition-colors bg-transparent border-0 cursor-pointer"
-            >
-              Terms
-            </button>
-            <button
-              onClick={() => alert("Simulation: Contact center form submission")}
-              className="hover:text-white transition-colors bg-transparent border-0 cursor-pointer"
-            >
-              Contact
-            </button>
+            <span className="text-neutral-600 cursor-default select-none">
+              Privacy Clariﬁed
+            </span>
+            <span className="text-neutral-600 cursor-default select-none">
+              Terms & Licensing
+            </span>
           </div>
 
           {/* Social icons */}
           <div className="flex items-center gap-4">
-            <button
-              onClick={() => alert("Follow on Twitter / X")}
+            <a
+              href="#hero"
               aria-label="Twitter link"
-              className="p-2 bg-neutral-800 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-700 transition-colors cursor-pointer"
+              className="p-2 bg-neutral-800 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-700 transition-colors"
             >
               <Twitter size={15} />
-            </button>
-            <button
-              onClick={() => alert("Follow on GitHub")}
+            </a>
+            <a
+              href="#hero"
               aria-label="GitHub Link"
-              className="p-2 bg-neutral-800 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-700 transition-colors cursor-pointer"
+              className="p-2 bg-neutral-800 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-700 transition-colors"
             >
               <Github size={15} />
-            </button>
-            <button
-              onClick={() => alert("Follow on LinkedIn")}
+            </a>
+            <a
+              href="#hero"
               aria-label="LinkedIn Link"
-              className="p-2 bg-neutral-800 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-700 transition-colors cursor-pointer"
+              className="p-2 bg-neutral-800 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-700 transition-colors"
             >
               <Linkedin size={15} />
-            </button>
+            </a>
           </div>
         </div>
 

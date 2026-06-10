@@ -111,9 +111,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="text-lg sm:text-xl text-neutral-600 max-w-2xl mx-auto mb-10 font-sans font-light leading-relaxed"
+            className="text-lg sm:text-xl text-neutral-600 max-w-3xl mx-auto mb-10 font-sans font-light leading-relaxed"
           >
-            A beautiful, lightweight notes application designed for your creative thoughts, structured tasks, and everyday mental clarity.
+            Collaborate instantaneously with real-time multi-user editing, live text cursors, secure file attachments, and smart auto-saves—all built on top of your beautifully structured personal workspace.
           </motion.p>
 
           {/* CTA Buttons */}

@@ -25,7 +25,7 @@ export default function SupabaseTest() {
     try {
       const { data, error } = await client.auth.getSession();
       if (error) {
-        console.error("Error getting session:", error);
+        console.warn("Status getting session:", error);
         setSession(`Error: ${error.message}`);
       } else {
         setSession(data.session);
