@@ -1,4 +1,4 @@
-import { NotebookPen, Github, Twitter, Linkedin } from "lucide-react";
+import { NotebookPen, Github, X, Linkedin } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -57,22 +57,28 @@ export default function Footer() {
           {/* Social icons */}
           <div className="flex items-center gap-4">
             <a
-              href="#hero"
-              aria-label="Twitter link"
+              href="https://x.com/renuxdev"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X (formerly Twitter) Profile"
               className="p-2 bg-neutral-800 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-700 transition-colors"
             >
-              <Twitter size={15} />
+              <X size={15} />
             </a>
             <a
-              href="#hero"
-              aria-label="GitHub Link"
+              href="https://github.com/Hood117"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
               className="p-2 bg-neutral-800 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-700 transition-colors"
             >
               <Github size={15} />
             </a>
             <a
-              href="#hero"
-              aria-label="LinkedIn Link"
+              href="https://www.linkedin.com/in/rahmatullah-zadran-148074278?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
               className="p-2 bg-neutral-800 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-700 transition-colors"
             >
               <Linkedin size={15} />
