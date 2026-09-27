@@ -78,45 +78,45 @@ export default function LoginForm({ onNavigateToSignup, onNavigateToHome, onSucc
   };
 
   return (
-    <div id="login-container" className="w-full max-w-md mx-auto space-y-6">
+    <div id="login-container" className="w-full max-w-md mx-auto space-y-4">
       {/* Back to Home action */}
       <button
         onClick={onNavigateToHome}
-        className="inline-flex items-center gap-1.5 text-neutral-500 hover:text-neutral-900 text-xs font-semibold mb-2 group focus:outline-none"
+        className="inline-flex items-center gap-1.5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white text-xs font-semibold group focus:outline-none transition-colors"
       >
         <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-0.5" />
         Back to Landing Page
       </button>
 
       {/* Main card box */}
-      <div className="bg-white rounded-3xl border border-neutral-200/80 p-8 md:p-10 shadow-xl shadow-neutral-100/50 relative overflow-hidden">
+      <div className="bg-white dark:bg-neutral-900 rounded-3xl border border-neutral-200/80 dark:border-neutral-800 p-8 md:p-10 shadow-xl shadow-neutral-100/50 dark:shadow-none relative overflow-hidden transition-colors">
         {/* Decorative corner ambient glow */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100/30 rounded-full blur-2xl -z-10" />
+        <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100/30 dark:bg-blue-600/10 rounded-full blur-2xl -z-10" />
 
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-500 text-white shadow-md shadow-blue-200/50 mb-4">
+          <div className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-500 text-white shadow-md shadow-blue-200/50 dark:shadow-none mb-4">
             <NotebookPen size={20} className="stroke-[2.5]" />
           </div>
-          <h2 className="font-display font-bold text-2xl text-neutral-950">Welcome Back</h2>
-          <p className="text-xs text-neutral-500 mt-1.5 font-sans">
+          <h2 className="font-display font-bold text-2xl text-neutral-950 dark:text-white transition-colors">Welcome Back</h2>
+          <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1.5 font-sans transition-colors">
             Access your secure workstation, task lists, and ideas.
           </p>
         </div>
 
         {/* Sandbox indicator and autofill shortcut */}
         {isDemoMode && (
-          <div className="mb-6 p-3.5 rounded-xl bg-orange-50/70 border border-orange-100/80 text-[11px] text-orange-900 font-sans space-y-2">
+          <div className="mb-6 p-3.5 rounded-xl bg-orange-50/70 dark:bg-orange-950/30 border border-orange-100/80 dark:border-orange-800/40 text-[11px] text-orange-900 dark:text-orange-300 font-sans space-y-2">
             <div className="flex items-center gap-1.5 font-bold">
               <Sparkles size={12} className="text-orange-500 fill-orange-400 animate-pulse" />
               Developer Sandbox Active
             </div>
-            <p className="text-orange-850">
+            <p className="text-orange-850 dark:text-orange-300/80">
               No live database variables configured. Easily simulate authenticated routes locally or autofill the sandbox user info below:
             </p>
             <button
               type="button"
               onClick={handleSandboxAutofill}
-              className="w-full py-1.5 px-3 rounded-lg bg-orange-100 hover:bg-orange-200 text-orange-900 font-bold transition-all text-[11px]"
+              className="w-full py-1.5 px-3 rounded-lg bg-orange-100 hover:bg-orange-200 dark:bg-orange-900/40 dark:hover:bg-orange-900/60 text-orange-900 dark:text-orange-200 font-bold transition-all text-[11px]"
             >
               ⚡ Click to Quick Autofill (Sandbox Mode)
             </button>
@@ -128,7 +128,7 @@ export default function LoginForm({ onNavigateToSignup, onNavigateToHome, onSucc
           type="button"
           onClick={handleGoogleSignIn}
           disabled={googleLoading || loading || success}
-          className="w-full mb-5 py-3.5 bg-white hover:bg-neutral-50 active:bg-neutral-100 border border-neutral-200 text-neutral-800 font-bold rounded-xl text-xs transition-all shadow-sm cursor-pointer flex items-center justify-center gap-2.5 focus:outline-none focus:ring-1 focus:ring-neutral-400"
+          className="w-full mb-5 py-3.5 bg-white dark:bg-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-750 active:bg-neutral-100 dark:active:bg-neutral-700 border border-neutral-200 dark:border-neutral-700 text-neutral-800 dark:text-neutral-100 font-bold rounded-xl text-xs transition-all shadow-xs cursor-pointer flex items-center justify-center gap-2.5 focus:outline-none focus:ring-1 focus:ring-neutral-400 dark:focus:ring-neutral-600"
         >
           {googleLoading ? (
             <Loader2 size={15} className="animate-spin text-neutral-500" />
@@ -145,15 +145,15 @@ export default function LoginForm({ onNavigateToSignup, onNavigateToHome, onSucc
 
         {/* Separator block */}
         <div className="relative flex py-2 items-center mb-5">
-          <div className="flex-grow border-t border-neutral-150"></div>
-          <span className="flex-shrink mx-4 text-[10px] text-neutral-400 font-bold uppercase tracking-wider">or login with credentials</span>
-          <div className="flex-grow border-t border-neutral-150"></div>
+          <div className="flex-grow border-t border-neutral-200 dark:border-neutral-800"></div>
+          <span className="flex-shrink mx-4 text-[10px] text-neutral-400 dark:text-neutral-500 font-bold uppercase tracking-wider">or login with credentials</span>
+          <div className="flex-grow border-t border-neutral-200 dark:border-neutral-800"></div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4" id="login-form">
           {/* Email input */}
           <div className="space-y-1.5">
-            <label className="block text-xs font-bold text-neutral-600 uppercase tracking-wider">Email Address</label>
+            <label className="block text-xs font-bold text-neutral-600 dark:text-neutral-300 uppercase tracking-wider">Email Address</label>
             <div className="relative">
               <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400" size={16} />
               <input
@@ -162,7 +162,7 @@ export default function LoginForm({ onNavigateToSignup, onNavigateToHome, onSucc
                 placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-neutral-50 hover:bg-neutral-100 focus:bg-white border border-neutral-200 rounded-xl py-3 pl-10 pr-4 text-xs font-sans text-neutral-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-neutral-400"
+                className="w-full bg-neutral-50 dark:bg-neutral-800/80 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:bg-white dark:focus:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl py-3 pl-10 pr-4 text-xs font-sans text-neutral-900 dark:text-white focus:outline-none focus:border-blue-500 dark:focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
               />
             </div>
           </div>
@@ -170,9 +170,9 @@ export default function LoginForm({ onNavigateToSignup, onNavigateToHome, onSucc
           {/* Password input */}
           <div className="space-y-1.5">
             <div className="flex items-center justify-between">
-              <label className="block text-xs font-bold text-neutral-600 uppercase tracking-wider">Password</label>
+              <label className="block text-xs font-bold text-neutral-600 dark:text-neutral-300 uppercase tracking-wider">Password</label>
               {isDemoMode && (
-                <span className="text-[10px] text-neutral-400">At least 6 chars</span>
+                <span className="text-[10px] text-neutral-400 dark:text-neutral-500">At least 6 chars</span>
               )}
             </div>
             <div className="relative">
@@ -184,12 +184,12 @@ export default function LoginForm({ onNavigateToSignup, onNavigateToHome, onSucc
                 placeholder="••••••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-neutral-50 hover:bg-neutral-100 focus:bg-white border border-neutral-200 rounded-xl py-3 pl-10 pr-11 text-xs font-sans text-neutral-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-neutral-400"
+                className="w-full bg-neutral-50 dark:bg-neutral-800/80 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:bg-white dark:focus:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl py-3 pl-10 pr-11 text-xs font-sans text-neutral-900 dark:text-white focus:outline-none focus:border-blue-500 dark:focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-650 focus:outline-none"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 focus:outline-none"
               >
                 {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
               </button>
@@ -198,14 +198,14 @@ export default function LoginForm({ onNavigateToSignup, onNavigateToHome, onSucc
 
           {/* Error Feedbacks */}
           {error && (
-            <div className="text-[11px] text-red-650 bg-red-50 border border-red-100 p-3 rounded-xl leading-relaxed">
+            <div className="text-[11px] text-red-650 dark:text-red-300 bg-red-50 dark:bg-red-950/40 border border-red-100 dark:border-red-900/50 p-3 rounded-xl leading-relaxed">
               ⚠️ {error}
             </div>
           )}
 
           {/* Success Feedbacks */}
           {success && (
-            <div className="text-[11px] text-emerald-800 bg-emerald-50 border border-emerald-100 p-3 rounded-xl flex items-center gap-2">
+            <div className="text-[11px] text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900/50 p-3 rounded-xl flex items-center gap-2">
               <CheckCircle2 size={14} className="text-emerald-500" />
               Credentials validated! Redirecting you securely...
             </div>
@@ -215,7 +215,7 @@ export default function LoginForm({ onNavigateToSignup, onNavigateToHome, onSucc
           <button
             type="submit"
             disabled={loading || success}
-            className="w-full py-3.5 bg-neutral-900 hover:bg-blue-600 disabled:bg-neutral-200 text-white font-bold rounded-xl text-xs transition-all shadow-md shadow-neutral-900/5 cursor-pointer disabled:cursor-not-allowed transform active:scale-98 flex items-center justify-center gap-2"
+            className="w-full py-3.5 bg-neutral-900 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-500 disabled:bg-neutral-200 dark:disabled:bg-neutral-800 text-white font-bold rounded-xl text-xs transition-all shadow-md shadow-neutral-900/5 dark:shadow-blue-600/20 cursor-pointer disabled:cursor-not-allowed transform active:scale-98 flex items-center justify-center gap-2"
           >
             {loading ? (
               <>
@@ -229,11 +229,11 @@ export default function LoginForm({ onNavigateToSignup, onNavigateToHome, onSucc
         </form>
 
         {/* Footer switch page navigation link */}
-        <div className="mt-8 pt-6 border-t border-neutral-100 text-center text-xs">
-          <span className="text-neutral-400">Don't have an active account yet?</span>{" "}
+        <div className="mt-8 pt-6 border-t border-neutral-100 dark:border-neutral-800 text-center text-xs">
+          <span className="text-neutral-400 dark:text-neutral-400">Don't have an active account yet?</span>{" "}
           <button
             onClick={onNavigateToSignup}
-            className="text-blue-600 hover:text-blue-700 font-bold hover:underline bg-transparent border-0 cursor-pointer focus:outline-none"
+            className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-bold hover:underline bg-transparent border-0 cursor-pointer focus:outline-none"
           >
             Create Free Account
           </button>
