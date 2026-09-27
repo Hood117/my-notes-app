@@ -30,18 +30,18 @@ export default function DashboardPreview() {
   });
 
   return (
-    <section className="py-24 bg-white" id="preview">
+    <section className="py-24 bg-white dark:bg-neutral-950 transition-colors duration-300" id="preview">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-12">
-          <span className="text-xs font-semibold uppercase tracking-wider text-blue-600">
+          <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
             Preview
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 mt-2 mb-3">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 dark:text-white mt-2 mb-3 transition-colors">
             Experience the Workspace
           </h2>
-          <p className="text-base text-neutral-500 font-sans font-light">
+          <p className="text-base text-neutral-500 dark:text-neutral-400 font-sans font-light transition-colors">
             Fast, intuitive note-taking built for deep focus and smooth team collaboration.
           </p>
         </div>
@@ -57,10 +57,10 @@ export default function DashboardPreview() {
                   setActiveTab(tab.id);
                   if (tab.id !== "search") setPreviewSearch("");
                 }}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold transition-all border outline-none ${
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold transition-all border outline-none cursor-pointer ${
                   isSelected
-                    ? "bg-neutral-900 text-white border-neutral-900 shadow-sm"
-                    : "bg-neutral-50 hover:bg-neutral-100 text-neutral-600 border-neutral-200/60"
+                    ? "bg-neutral-900 dark:bg-white text-white dark:text-neutral-950 border-neutral-900 dark:border-white shadow-sm"
+                    : "bg-neutral-50 dark:bg-neutral-800/80 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-600 dark:text-neutral-300 border-neutral-200/60 dark:border-neutral-700/60"
                 }`}
               >
                 {tab.icon}
@@ -71,7 +71,7 @@ export default function DashboardPreview() {
         </div>
 
         {/* Display Stage */}
-        <div className="bg-neutral-50/70 border border-neutral-200/70 rounded-3xl p-6 md:p-8 relative overflow-hidden" id="tour-stage">
+        <div className="bg-neutral-50/70 dark:bg-neutral-900/50 border border-neutral-200/70 dark:border-neutral-800 rounded-3xl p-6 md:p-8 relative overflow-hidden" id="tour-stage">
           
           <AnimatePresence mode="wait">
             {activeTab === "cards" && (
@@ -133,24 +133,24 @@ export default function DashboardPreview() {
                     placeholder="Search note titles or content..."
                     value={previewSearch}
                     onChange={(e) => setPreviewSearch(e.target.value)}
-                    className="w-full bg-white border border-neutral-200 rounded-xl pl-10 pr-4 py-2.5 text-xs font-sans focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    className="w-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl pl-10 pr-4 py-2.5 text-xs font-sans text-neutral-900 dark:text-white placeholder:text-neutral-400 focus:outline-none focus:ring-1 focus:ring-blue-500"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
                   {currentFiltered.length > 0 ? (
                     currentFiltered.map(note => (
-                      <div key={note.id} className="p-4 rounded-xl border bg-white border-neutral-200/80 transition-all hover:shadow-xs">
+                      <div key={note.id} className="p-4 rounded-xl border bg-white dark:bg-neutral-800 border-neutral-200/80 dark:border-neutral-700 transition-all hover:shadow-xs">
                         <div className="flex items-center justify-between text-[11px] text-neutral-400 mb-1">
-                          <span className="font-medium text-neutral-600">{note.category}</span>
+                          <span className="font-medium text-neutral-600 dark:text-neutral-300">{note.category}</span>
                           <span>{note.date}</span>
                         </div>
-                        <h4 className="font-display font-semibold text-neutral-900 text-sm">{note.title}</h4>
-                        <p className="text-xs text-neutral-500 mt-1 leading-relaxed line-clamp-2">{note.content}</p>
+                        <h4 className="font-display font-semibold text-neutral-900 dark:text-white text-sm">{note.title}</h4>
+                        <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed line-clamp-2">{note.content}</p>
                       </div>
                     ))
                   ) : (
-                    <div className="col-span-2 text-center py-10 bg-white rounded-xl border border-neutral-200/60">
+                    <div className="col-span-2 text-center py-10 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200/60 dark:border-neutral-700">
                       <p className="text-xs text-neutral-400">No notes found matching "{previewSearch}"</p>
                     </div>
                   )}
@@ -173,20 +173,20 @@ export default function DashboardPreview() {
                       key={note.id}
                       className={`p-3.5 rounded-xl border flex items-center justify-between transition-all ${
                         note.isFavorite 
-                          ? "bg-amber-50/60 border-amber-200/80" 
-                          : "bg-white border-neutral-200/60 opacity-60"
+                          ? "bg-amber-50/60 dark:bg-amber-950/20 border-amber-200/80 dark:border-amber-800/40" 
+                          : "bg-white dark:bg-neutral-800 border-neutral-200/60 dark:border-neutral-700 opacity-60"
                       }`}
                     >
                       <div className="flex items-center gap-2.5 truncate">
                         <button
                           onClick={() => handleFavoriteToggle(note.id)}
-                          className="p-1 rounded-lg text-amber-500 focus:outline-none"
+                          className="p-1 rounded-lg text-amber-500 focus:outline-none cursor-pointer"
                         >
-                          <Star size={14} className={note.isFavorite ? "fill-amber-400" : "text-neutral-300"} />
+                          <Star size={14} className={note.isFavorite ? "fill-amber-400" : "text-neutral-300 dark:text-neutral-600"} />
                         </button>
                         <div className="truncate">
-                          <h4 className="font-display font-semibold text-neutral-900 text-xs truncate">{note.title}</h4>
-                          <p className="text-[11px] text-neutral-500 truncate">{note.content}</p>
+                          <h4 className="font-display font-semibold text-neutral-900 dark:text-white text-xs truncate">{note.title}</h4>
+                          <p className="text-[11px] text-neutral-500 dark:text-neutral-400 truncate">{note.content}</p>
                         </div>
                       </div>
                       <span className="text-[10px] text-neutral-400 ml-2 shrink-0">
@@ -207,34 +207,34 @@ export default function DashboardPreview() {
                 transition={{ duration: 0.2 }}
                 className="max-w-2xl mx-auto"
               >
-                <div className="bg-white border border-neutral-200/80 rounded-2xl p-6 shadow-xs">
+                <div className="bg-white dark:bg-neutral-800 border border-neutral-200/80 dark:border-neutral-700 rounded-2xl p-6 shadow-xs">
                   {/* Top Bar with Collaborator Avatars */}
-                  <div className="flex items-center justify-between pb-4 border-b border-neutral-100 mb-4 select-none">
+                  <div className="flex items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-700 mb-4 select-none">
                     <div className="flex items-center gap-2">
                       <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                      <span className="text-xs font-medium text-neutral-600">
+                      <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300">
                         3 editors active
                       </span>
                     </div>
 
                     <div className="flex -space-x-1.5">
-                      <div className="h-6 w-6 rounded-full border-2 border-white bg-blue-500 text-white text-[9px] font-bold flex items-center justify-center">JD</div>
-                      <div className="h-6 w-6 rounded-full border-2 border-white bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">AL</div>
-                      <div className="h-6 w-6 rounded-full border-2 border-white bg-indigo-500 text-white text-[9px] font-bold flex items-center justify-center">MK</div>
+                      <div className="h-6 w-6 rounded-full border-2 border-white dark:border-neutral-800 bg-blue-500 text-white text-[9px] font-bold flex items-center justify-center">JD</div>
+                      <div className="h-6 w-6 rounded-full border-2 border-white dark:border-neutral-800 bg-emerald-500 text-white text-[9px] font-bold flex items-center justify-center">AL</div>
+                      <div className="h-6 w-6 rounded-full border-2 border-white dark:border-neutral-800 bg-indigo-500 text-white text-[9px] font-bold flex items-center justify-center">MK</div>
                     </div>
                   </div>
 
                   {/* Document Body */}
                   <div className="text-left space-y-3 relative min-h-[140px]">
-                    <h4 className="font-display font-bold text-neutral-900 text-base">
+                    <h4 className="font-display font-bold text-neutral-900 dark:text-white text-base">
                       Q3 Product Release Plan
                     </h4>
                     
-                    <div className="text-xs text-neutral-700 leading-relaxed space-y-2">
+                    <div className="text-xs text-neutral-700 dark:text-neutral-300 leading-relaxed space-y-2">
                       <p>
                         Reviewing core architecture and finalizing responsive design guidelines.
                       </p>
-                      <ul className="list-disc pl-4 space-y-1 text-neutral-600">
+                      <ul className="list-disc pl-4 space-y-1 text-neutral-600 dark:text-neutral-400">
                         <li>High-resolution asset export verification</li>
                         <li>Sync offline-first changes with cloud database</li>
                       </ul>
@@ -261,13 +261,13 @@ export default function DashboardPreview() {
                   </div>
 
                   {/* Attachment Preview */}
-                  <div className="mt-5 pt-3 border-t border-neutral-100 flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-2 text-neutral-700">
+                  <div className="mt-5 pt-3 border-t border-neutral-100 dark:border-neutral-700 flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-2 text-neutral-700 dark:text-neutral-300">
                       <Paperclip size={13} className="text-neutral-400" />
                       <span className="font-medium text-xs">release-roadmap.pdf</span>
                       <span className="text-[11px] text-neutral-400 font-mono">(2.4 MB)</span>
                     </div>
-                    <span className="text-[11px] text-blue-600 font-medium">Attached</span>
+                    <span className="text-[11px] text-blue-600 dark:text-blue-400 font-medium">Attached</span>
                   </div>
                 </div>
               </motion.div>

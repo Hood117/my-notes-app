@@ -5,7 +5,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-neutral-900 border-t border-neutral-800 text-neutral-400 py-12" id="footer">
+    <footer className="bg-neutral-900 dark:bg-black border-t border-neutral-800 dark:border-neutral-900 text-neutral-400 py-12 transition-colors duration-300" id="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-neutral-800">
           
@@ -29,6 +29,9 @@ export default function Footer() {
             </a>
             <a href="#pricing" className="hover:text-white transition-colors">
               Pricing
+            </a>
+            <a href="#testimonials" className="hover:text-white transition-colors">
+              Reviews
             </a>
             <a href="#/login" className="hover:text-white transition-colors">
               Sign In

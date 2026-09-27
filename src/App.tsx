@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { AuthProvider, useAuth } from "./lib/supabase/auth";
+import { ThemeProvider } from "./lib/theme";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Features from "./components/Features";
 import DashboardPreview from "./components/DashboardPreview";
 import Pricing from "./components/Pricing";
-import CTA from "./components/CTA";
+import SocialProof from "./components/SocialProof";
 import Footer from "./components/Footer";
 import LoginForm from "./components/auth/LoginForm";
 import SignupForm from "./components/auth/SignupForm";
@@ -52,7 +53,7 @@ function AppContent() {
   // Render Auth views
   if (view === "login") {
     return (
-      <div className="min-h-screen bg-[#fafafa] flex items-center justify-center p-4 selection:bg-blue-150 selection:text-blue-700">
+      <div className="min-h-screen bg-[#fafafa] dark:bg-neutral-950 flex items-center justify-center p-4 selection:bg-blue-150 selection:text-blue-700 transition-colors duration-300">
         <LoginForm
           onNavigateToSignup={() => navigateTo("signup")}
           onNavigateToHome={() => navigateTo("landing")}
@@ -69,7 +70,7 @@ function AppContent() {
 
   if (view === "signup") {
     return (
-      <div className="min-h-screen bg-[#fafafa] flex items-center justify-center p-4 selection:bg-blue-150 selection:text-blue-700">
+      <div className="min-h-screen bg-[#fafafa] dark:bg-neutral-950 flex items-center justify-center p-4 selection:bg-blue-150 selection:text-blue-700 transition-colors duration-300">
         <SignupForm
           onNavigateToLogin={() => navigateTo("login")}
           onNavigateToHome={() => navigateTo("landing")}
@@ -85,14 +86,14 @@ function AppContent() {
 
   // Default: marketing landing page
   return (
-    <div className="min-h-screen bg-white text-neutral-900 selection:bg-blue-100 selection:text-blue-700">
+    <div className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 selection:bg-blue-100 selection:text-blue-700 transition-colors duration-300">
       <Navbar />
       <main>
         <Hero />
         <Features />
         <DashboardPreview />
         <Pricing />
-        <CTA />
+        <SocialProof />
       </main>
       <Footer />
     </div>
@@ -101,8 +102,10 @@ function AppContent() {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <AppContent />
+      </AuthProvider>
+    </ThemeProvider>
   );
 }

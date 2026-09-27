@@ -35,25 +35,25 @@ export default function Features() {
         );
       case "feat-rich-text":
         return (
-          <div className="mt-5 flex items-center gap-1.5 text-xs text-neutral-500">
-            <span className="px-2 py-0.5 bg-neutral-100 rounded font-semibold text-neutral-700">H1</span>
-            <span className="px-2 py-0.5 bg-neutral-100 rounded font-bold text-neutral-700">B</span>
-            <span className="px-2 py-0.5 bg-neutral-100 rounded italic text-neutral-700">I</span>
-            <span className="px-2 py-0.5 bg-neutral-100 rounded font-mono text-[11px] text-neutral-700">Code</span>
-            <span className="text-neutral-300 mx-1">·</span>
+          <div className="mt-5 flex items-center gap-1.5 text-xs text-neutral-500 dark:text-neutral-400">
+            <span className="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 rounded font-semibold text-neutral-700 dark:text-neutral-300">H1</span>
+            <span className="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 rounded font-bold text-neutral-700 dark:text-neutral-300">B</span>
+            <span className="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 rounded italic text-neutral-700 dark:text-neutral-300">I</span>
+            <span className="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 rounded font-mono text-[11px] text-neutral-700 dark:text-neutral-300">Code</span>
+            <span className="text-neutral-300 dark:text-neutral-600 mx-1">·</span>
             <span className="text-neutral-400 text-xs">Markdown supported</span>
           </div>
         );
       case "feat-search":
         return (
-          <div className="mt-5 p-2.5 bg-neutral-50 border border-neutral-150 rounded-xl text-xs text-neutral-500 flex items-center gap-2">
+          <div className="mt-5 p-2.5 bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-150 dark:border-neutral-700 rounded-xl text-xs text-neutral-500 dark:text-neutral-400 flex items-center gap-2">
             <Search size={13} className="text-neutral-400" />
-            <span className="text-neutral-700 font-medium">Search notes or #tags...</span>
+            <span className="text-neutral-700 dark:text-neutral-300 font-medium">Search notes or #tags...</span>
           </div>
         );
       case "feat-attachments":
         return (
-          <div className="mt-5 flex items-center gap-2 px-3 py-2 bg-neutral-50 border border-neutral-150 rounded-xl text-xs text-neutral-700">
+          <div className="mt-5 flex items-center gap-2 px-3 py-2 bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-150 dark:border-neutral-700 rounded-xl text-xs text-neutral-700 dark:text-neutral-300">
             <Paperclip size={13} className="text-neutral-400" />
             <span className="font-medium truncate">project-document.pdf</span>
             <span className="text-neutral-400 ml-auto font-mono text-[11px]">1.2 MB</span>
@@ -61,15 +61,15 @@ export default function Features() {
         );
       case "feat-sync":
         return (
-          <div className="mt-5 flex items-center gap-2 text-xs text-neutral-500">
+          <div className="mt-5 flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400">
             <span className="h-2 w-2 rounded-full bg-emerald-500" />
             <span>Instant offline save & cloud backup</span>
           </div>
         );
       case "feat-google-auth":
         return (
-          <div className="mt-5 flex items-center gap-2 text-xs text-neutral-600 font-medium">
-            <div className="w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center text-xs font-bold text-neutral-700">
+          <div className="mt-5 flex items-center gap-2 text-xs text-neutral-600 dark:text-neutral-400 font-medium">
+            <div className="w-5 h-5 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-xs font-bold text-neutral-700 dark:text-neutral-300">
               G
             </div>
             <span>Fast Google authentication</span>
@@ -81,18 +81,18 @@ export default function Features() {
   };
 
   return (
-    <section className="py-24 bg-neutral-50/60 border-y border-neutral-200/50" id="features">
+    <section className="py-24 bg-neutral-50/60 dark:bg-neutral-900/60 border-y border-neutral-200/50 dark:border-neutral-800 transition-colors duration-300" id="features">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-semibold uppercase tracking-wider text-blue-600">
+          <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
             Features
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 mt-2 mb-3">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 dark:text-white mt-2 mb-3 transition-colors">
             Designed for Effortless Writing
           </h2>
-          <p className="text-base text-neutral-600 font-sans font-light">
+          <p className="text-base text-neutral-600 dark:text-neutral-400 font-sans font-light transition-colors">
             Fast, minimal tools designed to keep you in flow state without visual distractions.
           </p>
         </div>
@@ -105,17 +105,17 @@ export default function Features() {
               viewport={{ once: true, margin: "-50px" }}
               whileHover={{ y: -3 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="bg-white rounded-2xl p-6 md:p-7 border border-neutral-200/70 hover:border-neutral-300 transition-all shadow-xs flex flex-col justify-between"
+              className="bg-white dark:bg-neutral-900 rounded-2xl p-6 md:p-7 border border-neutral-200/70 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all shadow-xs flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 bg-neutral-50 rounded-xl flex items-center justify-center border border-neutral-100 mb-4">
+                <div className="w-10 h-10 bg-neutral-50 dark:bg-neutral-800 rounded-xl flex items-center justify-center border border-neutral-100 dark:border-neutral-700 mb-4">
                   {getIcon(feature.id)}
                 </div>
 
-                <h3 className="font-display text-base font-bold tracking-tight text-neutral-900 mb-2">
+                <h3 className="font-display text-base font-bold tracking-tight text-neutral-900 dark:text-white mb-2 transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-neutral-500 leading-relaxed font-sans">
+                <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed font-sans transition-colors">
                   {feature.description}
                 </p>
               </div>

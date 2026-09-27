@@ -73,11 +73,11 @@ export default function Hero() {
   });
 
   return (
-    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden" id="hero">
+    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden bg-white dark:bg-neutral-950 transition-colors duration-300" id="hero">
       {/* Dynamic Background Atmosphere */}
-      <div className="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] rounded-full bg-blue-100/40 blur-[130px] -z-10" />
-      <div className="absolute top-[30%] right-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-100/40 blur-[140px] -z-10" />
-      <div className="absolute bottom-[-10%] left-[20%] w-[40%] h-[40%] rounded-full bg-rose-100/30 blur-[120px] -z-10" />
+      <div className="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] rounded-full bg-blue-100/40 dark:bg-blue-900/15 blur-[130px] -z-10" />
+      <div className="absolute top-[30%] right-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-100/40 dark:bg-indigo-900/15 blur-[140px] -z-10" />
+      <div className="absolute bottom-[-10%] left-[20%] w-[40%] h-[40%] rounded-full bg-rose-100/30 dark:bg-rose-900/10 blur-[120px] -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
@@ -86,7 +86,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 text-xs font-medium text-neutral-700 mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-6"
           >
             <span>Fast, minimal notes workspace</span>
           </motion.div>
@@ -96,10 +96,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-neutral-950 mb-6 leading-[1.08]"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white mb-6 leading-[1.08] transition-colors"
           >
             Capture Every Idea <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400">
               Before It Disappears
             </span>
           </motion.h1>
@@ -109,7 +109,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="text-lg sm:text-xl text-neutral-600 max-w-2xl mx-auto mb-10 font-sans font-light leading-relaxed"
+            className="text-lg sm:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-10 font-sans font-light leading-relaxed transition-colors"
           >
             A calm, distraction-free workspace for your ideas, notes, and real-time team collaboration. Simple by design, powerful when you need it.
           </motion.p>
@@ -123,8 +123,8 @@ export default function Hero() {
             id="hero-ctas-container"
           >
             <a
-              href="#cta"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 href-[#cta] px-8 py-4 rounded-2xl bg-neutral-950 hover:bg-neutral-800 text-white font-semibold shadow-xl shadow-neutral-900/10 hover:shadow-neutral-900/20 hover:-translate-y-0.5 transition-all duration-300 active:scale-98 text-base"
+              href="#/signup"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-neutral-950 dark:bg-white hover:bg-neutral-800 dark:hover:bg-neutral-100 text-white dark:text-neutral-950 font-semibold shadow-xl shadow-neutral-900/10 dark:shadow-none hover:-translate-y-0.5 transition-all duration-300 active:scale-98 text-base"
               id="hero-primary-cta"
             >
               Get Started Free
@@ -132,7 +132,7 @@ export default function Hero() {
             </a>
             <a
               href="#preview"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-white border border-neutral-200/80 text-neutral-800 font-semibold hover:bg-neutral-50 hover:border-neutral-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 active:scale-98 text-base"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 font-semibold hover:bg-neutral-50 dark:hover:bg-neutral-800/80 hover:border-neutral-300 dark:hover:border-neutral-700 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 active:scale-98 text-base"
               id="hero-secondary-cta"
             >
               <Play size={16} className="text-neutral-500 fill-neutral-400" />
@@ -143,20 +143,20 @@ export default function Hero() {
 
         {/* Dashboard Mockup Showcase Container */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           className="relative max-w-5xl mx-auto"
           id="hero-preview-frame"
         >
           {/* Accent decoration rings for Linear/Apple aesthetic */}
-          <div className="absolute top-[-2%] left-[4%] w-[92%] h-[104%] bg-gradient-to-r from-blue-300 to-indigo-300 rounded-[2.5rem] -z-20 blur-xl opacity-20" />
-          <div className="absolute inset-0 bg-neutral-200/50 rounded-[2.5rem] -z-10 border border-white/60 p-1 shadow-2xl shadow-neutral-200/80" />
+          <div className="absolute top-[-2%] left-[4%] w-[92%] h-[104%] bg-gradient-to-r from-blue-300 to-indigo-300 dark:from-blue-600/30 dark:to-indigo-600/30 rounded-[2.5rem] -z-20 blur-xl opacity-20" />
+          <div className="absolute inset-0 bg-neutral-200/50 dark:bg-neutral-800/40 rounded-[2.5rem] -z-10 border border-white/60 dark:border-neutral-700/60 p-1 shadow-2xl shadow-neutral-200/80 dark:shadow-none" />
 
           {/* Application Window Frame */}
-          <div className="bg-white rounded-[2.2rem] overflow-hidden border border-neutral-200/60 shadow-lg flex flex-col md:flex-row h-[560px]" id="app-preview-inner">
+          <div className="bg-white dark:bg-neutral-900 rounded-[2.2rem] overflow-hidden border border-neutral-200/60 dark:border-neutral-800 shadow-lg flex flex-col md:flex-row h-[560px]" id="app-preview-inner">
             {/* Sidebar of notes app */}
-            <div className="w-full md:w-60 bg-neutral-50 border-r border-neutral-200/60 p-5 flex flex-col justify-between shrink-0" id="preview-sidebar">
+            <div className="w-full md:w-60 bg-neutral-50 dark:bg-neutral-950/70 border-r border-neutral-200/60 dark:border-neutral-800 p-5 flex flex-col justify-between shrink-0" id="preview-sidebar">
               <div>
                 <div className="flex items-center gap-2 px-1 mb-6">
                   <div className="w-3.5 h-3.5 rounded-full bg-red-400" />
@@ -165,24 +165,24 @@ export default function Hero() {
                 </div>
 
                 {/* Profiles info */}
-                <div className="flex items-center gap-2 px-2 py-1.5 bg-white/70 rounded-xl border border-neutral-200/40 mb-5 shadow-xs">
+                <div className="flex items-center gap-2 px-2 py-1.5 bg-white/70 dark:bg-neutral-800/70 rounded-xl border border-neutral-200/40 dark:border-neutral-700/40 mb-5 shadow-xs">
                   <div className="w-6 h-6 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-xs">
                     W
                   </div>
-                  <span className="text-xs font-semibold text-neutral-700 truncate">My Workspace</span>
+                  <span className="text-xs font-semibold text-neutral-700 dark:text-neutral-200 truncate">My Workspace</span>
                 </div>
 
                 {/* Sidebar Navigation */}
                 <div className="space-y-1">
-                  <button className="w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-neutral-200/60 text-neutral-900 group">
+                  <button className="w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-neutral-200/60 dark:bg-neutral-800 text-neutral-900 dark:text-white group">
                     <span className="flex items-center gap-2">
-                      <FolderKanban size={13} className="text-neutral-500" /> All Notes
+                      <FolderKanban size={13} className="text-neutral-500 dark:text-neutral-400" /> All Notes
                     </span>
-                    <span className="text-[10px] bg-neutral-200 text-neutral-700 px-1.5 py-0.5 rounded-full font-mono font-medium">
+                    <span className="text-[10px] bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 px-1.5 py-0.5 rounded-full font-mono font-medium">
                       {notes.length}
                     </span>
                   </button>
-                  <button className="w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium text-neutral-600 hover:bg-neutral-200/40 hover:text-neutral-900">
+                  <button className="w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200/40 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-white">
                     <span className="flex items-center gap-2">
                       <Star size={13} className="text-neutral-400" /> Starred
                     </span>
@@ -197,7 +197,7 @@ export default function Hero() {
                   <span className="text-[10px] font-bold tracking-wider text-neutral-400 uppercase px-2">Tags</span>
                   <div className="mt-2 space-y-1">
                     {Array.from(new Set(notes.flatMap(n => n.tags))).slice(0, 4).map(tag => (
-                      <button key={tag} className="w-full flex items-center gap-2 px-2.5 py-1 rounded-lg text-xs font-medium text-neutral-500 hover:bg-neutral-200/40 hover:text-neutral-800">
+                      <button key={tag} className="w-full flex items-center gap-2 px-2.5 py-1 rounded-lg text-xs font-medium text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200/40 dark:hover:bg-neutral-800 hover:text-neutral-800 dark:hover:text-neutral-200">
                         <Hash size={11} className="text-neutral-400" /> {tag}
                       </button>
                     ))}
@@ -207,7 +207,7 @@ export default function Hero() {
             </div>
 
             {/* Notes content workspace */}
-            <div className="flex-1 bg-white p-6 overflow-hidden flex flex-col justify-between" id="preview-panel">
+            <div className="flex-1 bg-white dark:bg-neutral-900 p-6 overflow-hidden flex flex-col justify-between" id="preview-panel">
               <div className="overflow-y-auto pr-1 flex-1">
                 {/* Search Bar and controls */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
@@ -218,7 +218,7 @@ export default function Hero() {
                       placeholder="Search notes..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full bg-neutral-50 border border-neutral-200/80 rounded-xl pl-9 pr-3 py-1.5 text-xs font-sans focus:outline-none focus:ring-1 focus:ring-blue-500 focus:bg-white transition-all"
+                      className="w-full bg-neutral-50 dark:bg-neutral-800 border border-neutral-200/80 dark:border-neutral-700 rounded-xl pl-9 pr-3 py-1.5 text-xs font-sans text-neutral-900 dark:text-white placeholder:text-neutral-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:bg-white dark:focus:bg-neutral-800 transition-all"
                     />
                   </div>
 
@@ -229,8 +229,8 @@ export default function Hero() {
                         onClick={() => setActiveCategory(cat)}
                         className={`text-[11px] font-medium px-2.5 py-1 rounded-lg transition-transform focus:outline-none focus:scale-95 ${
                           activeCategory === cat
-                            ? "bg-neutral-900 text-white"
-                            : "bg-neutral-100 hover:bg-neutral-200 text-neutral-600"
+                            ? "bg-neutral-900 dark:bg-white text-white dark:text-neutral-900"
+                            : "bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-600 dark:text-neutral-300"
                         }`}
                       >
                         {cat}
@@ -305,7 +305,7 @@ export default function Hero() {
               </div>
 
               {/* Interaction note adding inline form */}
-              <form onSubmit={handleCreateNote} className="mt-4 pt-3 border-t border-neutral-100 flex items-center gap-2 bg-neutral-50/50 p-2.5 rounded-2xl">
+              <form onSubmit={handleCreateNote} className="mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-800 flex items-center gap-2 bg-neutral-50/50 dark:bg-neutral-800/50 p-2.5 rounded-2xl">
                 <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                   <input
                     type="text"
@@ -314,7 +314,7 @@ export default function Hero() {
                     placeholder="Note title..."
                     value={newTitle}
                     onChange={(e) => setNewTitle(e.target.value)}
-                    className="bg-white border border-neutral-200 rounded-lg px-2.5 py-1 text-xs focus:outline-none focus:border-blue-500"
+                    className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder:text-neutral-400 rounded-lg px-2.5 py-1 text-xs focus:outline-none focus:border-blue-500"
                   />
                   <input
                     type="text"
@@ -323,7 +323,7 @@ export default function Hero() {
                     placeholder="Take a note..."
                     value={newContent}
                     onChange={(e) => setNewContent(e.target.value)}
-                    className="bg-white border border-neutral-200 rounded-lg px-2.5 py-1 text-xs focus:outline-none focus:border-blue-500"
+                    className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder:text-neutral-400 rounded-lg px-2.5 py-1 text-xs focus:outline-none focus:border-blue-500"
                   />
                 </div>
                 <button

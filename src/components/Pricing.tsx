@@ -4,18 +4,18 @@ import { PRICING_TIERS } from "../data";
 
 export default function Pricing() {
   return (
-    <section className="py-24 bg-neutral-50/60 border-t border-neutral-200/50" id="pricing">
+    <section className="py-24 bg-neutral-50/60 dark:bg-neutral-900/60 border-t border-neutral-200/50 dark:border-neutral-800 transition-colors duration-300" id="pricing">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-14">
-          <span className="text-xs font-semibold uppercase tracking-wider text-blue-600">
+          <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
             Pricing
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 mt-2 mb-3">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 dark:text-white mt-2 mb-3 transition-colors">
             Simple, Transparent Plans
           </h2>
-          <p className="text-base text-neutral-500 font-sans font-light">
+          <p className="text-base text-neutral-500 dark:text-neutral-400 font-sans font-light transition-colors">
             Start free for personal note-taking, or choose Pro for unlimited workspace power.
           </p>
         </div>
@@ -30,8 +30,8 @@ export default function Pricing() {
               transition={{ duration: 0.2 }}
               className={`rounded-2xl p-7 relative flex flex-col justify-between border ${
                 tier.isPopular
-                  ? "bg-white border-blue-600 shadow-md ring-1 ring-blue-600/20"
-                  : "bg-white border-neutral-200/80 shadow-xs"
+                  ? "bg-white dark:bg-neutral-900 border-blue-600 dark:border-blue-500 shadow-md ring-1 ring-blue-600/20"
+                  : "bg-white dark:bg-neutral-900 border-neutral-200/80 dark:border-neutral-800 shadow-xs"
               }`}
             >
               {tier.isPopular && (
@@ -41,20 +41,20 @@ export default function Pricing() {
               )}
 
               <div>
-                <h3 className="font-display text-lg font-bold text-neutral-900 mb-1">{tier.name}</h3>
-                <p className="text-xs text-neutral-500 mb-5 font-sans leading-relaxed">{tier.description}</p>
+                <h3 className="font-display text-lg font-bold text-neutral-900 dark:text-white mb-1 transition-colors">{tier.name}</h3>
+                <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-5 font-sans leading-relaxed transition-colors">{tier.description}</p>
                 
                 <div className="flex items-baseline gap-1 mb-6">
-                  <span className="font-display text-3xl font-bold text-neutral-950">{tier.price}</span>
+                  <span className="font-display text-3xl font-bold text-neutral-950 dark:text-white transition-colors">{tier.price}</span>
                   <span className="text-xs text-neutral-400">/ {tier.period}</span>
                 </div>
 
-                <div className="border-t border-neutral-100 pt-5 mb-6">
+                <div className="border-t border-neutral-100 dark:border-neutral-800 pt-5 mb-6">
                   <ul className="space-y-3" id="pricing-list">
                     {tier.features.map((feat) => (
                       <li key={feat} className="flex items-center gap-2.5">
-                        <Check size={14} className={tier.isPopular ? "text-blue-600" : "text-neutral-400"} />
-                        <span className="text-xs text-neutral-600 font-sans">{feat}</span>
+                        <Check size={14} className={tier.isPopular ? "text-blue-600 dark:text-blue-400" : "text-neutral-400"} />
+                        <span className="text-xs text-neutral-600 dark:text-neutral-300 font-sans">{feat}</span>
                       </li>
                     ))}
                   </ul>
@@ -66,7 +66,7 @@ export default function Pricing() {
                 className={`w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-center transition-all block ${
                   tier.isPopular
                     ? "bg-blue-600 hover:bg-blue-700 text-white shadow-xs"
-                    : "bg-neutral-100 hover:bg-neutral-200 text-neutral-800"
+                    : "bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200"
                 }`}
               >
                 {tier.ctaText}
