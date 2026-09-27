@@ -51,20 +51,20 @@ const TESTIMONIALS: Testimonial[] = [
 export default function SocialProof() {
   return (
     <section
-      className="py-24 relative overflow-hidden bg-white dark:bg-neutral-950 border-t border-neutral-200/50 dark:border-neutral-800 transition-colors duration-300"
+      className="py-24 relative overflow-hidden bg-neutral-100/50 dark:bg-neutral-950/80 border-t border-neutral-200/70 dark:border-neutral-800 transition-colors duration-300"
       id="testimonials"
     >
       {/* Ambient gradient orbs behind the glass cards */}
       <div
-        className="absolute top-1/2 left-1/4 -translate-y-1/2 w-80 h-80 bg-blue-400/15 dark:bg-blue-600/10 rounded-full blur-[100px] pointer-events-none -z-10"
+        className="absolute top-1/2 left-1/4 -translate-y-1/2 w-80 h-80 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-[100px] pointer-events-none -z-10"
         aria-hidden="true"
       />
       <div
-        className="absolute top-1/3 right-1/4 -translate-y-1/2 w-96 h-96 bg-indigo-400/15 dark:bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none -z-10"
+        className="absolute top-1/3 right-1/4 -translate-y-1/2 w-96 h-96 bg-indigo-400/20 dark:bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none -z-10"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 w-72 h-72 bg-rose-400/10 dark:bg-rose-600/10 rounded-full blur-[90px] pointer-events-none -z-10"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 w-72 h-72 bg-rose-400/15 dark:bg-rose-600/10 rounded-full blur-[90px] pointer-events-none -z-10"
         aria-hidden="true"
       />
 
@@ -75,7 +75,7 @@ export default function SocialProof() {
             <BadgeCheck size={14} className="text-blue-600 dark:text-blue-400" />
             Social Proof
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 dark:text-white mt-1 transition-colors">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-neutral-950 dark:text-white mt-1 transition-colors">
             Loved by Builders, Writers, and Teams
           </h2>
         </div>
@@ -89,16 +89,13 @@ export default function SocialProof() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: index * 0.15, ease: "easeOut" }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="relative group rounded-3xl p-7 flex flex-col justify-between backdrop-blur-xl bg-white/70 dark:bg-neutral-900/60 border border-white/80 dark:border-neutral-800/80 shadow-lg shadow-neutral-900/5 dark:shadow-black/30 hover:shadow-xl hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-300 overflow-hidden"
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              className="liquid-glass rounded-3xl p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-none"
             >
-              {/* Card top subtle shine accent */}
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/80 dark:via-neutral-700/60 to-transparent pointer-events-none" />
-
               <div>
                 {/* Header row: Tag and Rating */}
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-neutral-100/80 dark:bg-neutral-800/80 text-neutral-600 dark:text-neutral-300 border border-neutral-200/50 dark:border-neutral-700/50">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-neutral-200/60 dark:bg-neutral-800/80 text-neutral-700 dark:text-neutral-300 border border-black/5 dark:border-white/10">
                     {item.tag}
                   </span>
                   
@@ -117,18 +114,18 @@ export default function SocialProof() {
                 {/* Quote Icon */}
                 <Quote
                   size={24}
-                  className="text-neutral-300/80 dark:text-neutral-700/80 mb-3"
+                  className="text-neutral-350 dark:text-neutral-600 mb-3"
                   aria-hidden="true"
                 />
 
                 {/* Testimonial Text */}
-                <p className="text-neutral-700 dark:text-neutral-300 text-sm leading-relaxed font-sans mb-6">
+                <p className="text-neutral-800 dark:text-neutral-200 text-sm leading-relaxed font-sans mb-6">
                   "{item.content}"
                 </p>
               </div>
 
               {/* Author / Avatar Info */}
-              <div className="pt-4 border-t border-neutral-200/60 dark:border-neutral-800/70 flex items-center gap-3">
+              <div className="pt-4 border-t border-black/5 dark:border-white/10 flex items-center gap-3">
                 <div className="relative shrink-0">
                   <img
                     src={item.avatar}
@@ -146,12 +143,12 @@ export default function SocialProof() {
 
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-1.5">
-                    <h4 className="font-display font-bold text-sm text-neutral-900 dark:text-white truncate">
+                    <h4 className="font-display font-bold text-sm text-neutral-950 dark:text-white truncate">
                       {item.name}
                     </h4>
                   </div>
-                  <p className="text-xs text-neutral-500 dark:text-neutral-400 truncate">
-                    {item.role} · <span className="font-medium text-neutral-700 dark:text-neutral-300">{item.company}</span>
+                  <p className="text-xs text-neutral-600 dark:text-neutral-400 truncate">
+                    {item.role} · <span className="font-semibold text-neutral-900 dark:text-neutral-200">{item.company}</span>
                   </p>
                 </div>
               </div>

@@ -81,7 +81,11 @@ export default function Features() {
   };
 
   return (
-    <section className="py-24 bg-neutral-50/60 dark:bg-neutral-900/60 border-y border-neutral-200/50 dark:border-neutral-800 transition-colors duration-300" id="features">
+    <section className="py-24 relative overflow-hidden bg-neutral-100/50 dark:bg-neutral-950/80 border-y border-neutral-200/70 dark:border-neutral-800 transition-colors duration-300" id="features">
+      {/* Background ambient orbs to create physical refraction through the liquid glass */}
+      <div className="absolute top-1/4 -left-20 w-80 h-80 bg-blue-400/25 dark:bg-blue-600/10 rounded-full blur-[110px] pointer-events-none -z-10" />
+      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-indigo-400/25 dark:bg-indigo-600/10 rounded-full blur-[130px] pointer-events-none -z-10" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -89,33 +93,33 @@ export default function Features() {
           <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
             Features
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 dark:text-white mt-2 mb-3 transition-colors">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-neutral-950 dark:text-white mt-2 mb-3 transition-colors">
             Designed for Effortless Writing
           </h2>
-          <p className="text-base text-neutral-600 dark:text-neutral-400 font-sans font-light transition-colors">
+          <p className="text-base text-neutral-600 dark:text-neutral-400 font-sans font-normal transition-colors">
             Fast, minimal tools designed to keep you in flow state without visual distractions.
           </p>
         </div>
 
-        {/* 6 Features Grid */}
+        {/* 6 Features Bento Grid with Liquid Glass */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="features-bento-grid">
           {FEATURES.map((feature) => (
             <motion.div
               key={feature.id}
               viewport={{ once: true, margin: "-50px" }}
-              whileHover={{ y: -3 }}
+              whileHover={{ y: -4 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="bg-white dark:bg-neutral-900 rounded-2xl p-6 md:p-7 border border-neutral-200/70 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all shadow-xs flex flex-col justify-between"
+              className="liquid-glass rounded-3xl p-6 md:p-7 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-none"
             >
               <div>
-                <div className="w-10 h-10 bg-neutral-50 dark:bg-neutral-800 rounded-xl flex items-center justify-center border border-neutral-100 dark:border-neutral-700 mb-4">
+                <div className="w-11 h-11 bg-white/95 dark:bg-neutral-800/80 rounded-2xl flex items-center justify-center border border-black/5 dark:border-white/10 shadow-xs mb-4">
                   {getIcon(feature.id)}
                 </div>
 
-                <h3 className="font-display text-base font-bold tracking-tight text-neutral-900 dark:text-white mb-2 transition-colors">
+                <h3 className="font-display text-base font-bold tracking-tight text-neutral-950 dark:text-white mb-2 transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed font-sans transition-colors">
+                <p className="text-xs sm:text-sm text-neutral-700 dark:text-neutral-400 leading-relaxed font-sans transition-colors">
                   {feature.description}
                 </p>
               </div>

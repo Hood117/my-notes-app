@@ -149,12 +149,12 @@ export default function Hero() {
           className="relative max-w-5xl mx-auto"
           id="hero-preview-frame"
         >
-          {/* Accent decoration rings for Linear/Apple aesthetic */}
-          <div className="absolute top-[-2%] left-[4%] w-[92%] h-[104%] bg-gradient-to-r from-blue-300 to-indigo-300 dark:from-blue-600/30 dark:to-indigo-600/30 rounded-[2.5rem] -z-20 blur-xl opacity-20" />
-          <div className="absolute inset-0 bg-neutral-200/50 dark:bg-neutral-800/40 rounded-[2.5rem] -z-10 border border-white/60 dark:border-neutral-700/60 p-1 shadow-2xl shadow-neutral-200/80 dark:shadow-none" />
+          {/* Accent decoration rings for Apple liquid glass aesthetic */}
+          <div className="absolute top-[-2%] left-[4%] w-[92%] h-[104%] bg-gradient-to-r from-blue-400/20 via-indigo-400/20 to-purple-400/20 dark:from-blue-600/25 dark:via-indigo-600/25 dark:to-purple-600/25 rounded-[2.8rem] -z-20 blur-2xl opacity-60" />
+          <div className="absolute inset-0 liquid-glass rounded-[2.6rem] -z-10 p-1" />
 
           {/* Application Window Frame */}
-          <div className="bg-white dark:bg-neutral-900 rounded-[2.2rem] overflow-hidden border border-neutral-200/60 dark:border-neutral-800 shadow-lg flex flex-col md:flex-row h-[560px]" id="app-preview-inner">
+          <div className="bg-white/85 dark:bg-neutral-900/85 backdrop-blur-2xl rounded-[2.3rem] overflow-hidden border border-white/80 dark:border-white/10 shadow-2xl flex flex-col md:flex-row h-[560px]" id="app-preview-inner">
             {/* Sidebar of notes app */}
             <div className="w-full md:w-60 bg-neutral-50 dark:bg-neutral-950/70 border-r border-neutral-200/60 dark:border-neutral-800 p-5 flex flex-col justify-between shrink-0" id="preview-sidebar">
               <div>

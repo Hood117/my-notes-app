@@ -71,7 +71,7 @@ export default function DashboardPreview() {
         </div>
 
         {/* Display Stage */}
-        <div className="bg-neutral-50/70 dark:bg-neutral-900/50 border border-neutral-200/70 dark:border-neutral-800 rounded-3xl p-6 md:p-8 relative overflow-hidden" id="tour-stage">
+        <div className="liquid-glass rounded-3xl p-6 md:p-8 relative overflow-hidden" id="tour-stage">
           
           <AnimatePresence mode="wait">
             {activeTab === "cards" && (
