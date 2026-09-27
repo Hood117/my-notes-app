@@ -81,16 +81,14 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
-          {/* Tagline Badge */}
+          {/* Clean Editorial Kicker */}
           <motion.div
-            initial={{ opacity: 0, y: -15 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-neutral-100/80 shadow-xs text-xs font-semibold text-neutral-800 mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 text-xs font-medium text-neutral-700 mb-6"
           >
-            <span className="flex h-2.5 w-2.5 rounded-full bg-blue-600 animate-pulse" />
-            <Sparkles size={12} className="text-amber-500 fill-amber-400" />
-            Introducing My Notes v2.0
+            <span>Fast, minimal notes workspace</span>
           </motion.div>
 
           {/* Main Hero Headline */}
@@ -111,9 +109,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="text-lg sm:text-xl text-neutral-600 max-w-3xl mx-auto mb-10 font-sans font-light leading-relaxed"
+            className="text-lg sm:text-xl text-neutral-600 max-w-2xl mx-auto mb-10 font-sans font-light leading-relaxed"
           >
-            Collaborate instantaneously with real-time multi-user editing, live text cursors, secure file attachments, and smart auto-saves—all built on top of your beautifully structured personal workspace.
+            A calm, distraction-free workspace for your ideas, notes, and real-time team collaboration. Simple by design, powerful when you need it.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -166,12 +164,12 @@ export default function Hero() {
                   <div className="w-3.5 h-3.5 rounded-full bg-green-400" />
                 </div>
 
-                {/* Simulated profiles info */}
+                {/* Profiles info */}
                 <div className="flex items-center gap-2 px-2 py-1.5 bg-white/70 rounded-xl border border-neutral-200/40 mb-5 shadow-xs">
-                  <div className="w-6 h-6 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-xs">
-                    R
+                  <div className="w-6 h-6 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-xs">
+                    W
                   </div>
-                  <span className="text-xs font-semibold text-neutral-700 truncate">Workspace (rahmat)</span>
+                  <span className="text-xs font-semibold text-neutral-700 truncate">My Workspace</span>
                 </div>
 
                 {/* Sidebar Navigation */}
@@ -206,14 +204,6 @@ export default function Hero() {
                   </div>
                 </div>
               </div>
-
-              {/* Version code indicator */}
-              <div className="text-[10px] font-mono text-neutral-400 border-t border-neutral-100 pt-3">
-                <p>Status: Interactive Sandbox</p>
-                <p className="mt-0.5 text-green-600 flex items-center gap-1">
-                  <span className="h-1.5 w-1.5 bg-green-500 rounded-full animate-ping" /> Synchronized
-                </p>
-              </div>
             </div>
 
             {/* Notes content workspace */}
@@ -225,7 +215,7 @@ export default function Hero() {
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" size={14} />
                     <input
                       type="text"
-                      placeholder="Search live mock database..."
+                      placeholder="Search notes..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       className="w-full bg-neutral-50 border border-neutral-200/80 rounded-xl pl-9 pr-3 py-1.5 text-xs font-sans focus:outline-none focus:ring-1 focus:ring-blue-500 focus:bg-white transition-all"
@@ -321,7 +311,7 @@ export default function Hero() {
                     type="text"
                     required
                     maxLength={35}
-                    placeholder="New Title..."
+                    placeholder="Note title..."
                     value={newTitle}
                     onChange={(e) => setNewTitle(e.target.value)}
                     className="bg-white border border-neutral-200 rounded-lg px-2.5 py-1 text-xs focus:outline-none focus:border-blue-500"
@@ -330,7 +320,7 @@ export default function Hero() {
                     type="text"
                     required
                     maxLength={130}
-                    placeholder="Note quick description..."
+                    placeholder="Take a note..."
                     value={newContent}
                     onChange={(e) => setNewContent(e.target.value)}
                     className="bg-white border border-neutral-200 rounded-lg px-2.5 py-1 text-xs focus:outline-none focus:border-blue-500"

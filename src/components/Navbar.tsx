@@ -23,8 +23,8 @@ export default function Navbar() {
 
   const navLinks = [
     { label: "Features", href: "#features" },
-    { label: "Workspace Preview", href: "#preview" },
-    { label: "Pricing Pricing", href: "#pricing" },
+    { label: "Preview", href: "#preview" },
+    { label: "Pricing", href: "#pricing" },
   ];
 
   return (
@@ -60,7 +60,7 @@ export default function Navbar() {
                 href={link.href}
                 className="text-sm font-medium text-neutral-600 hover:text-blue-600 transition-colors duration-200"
               >
-                {link.label.replace(" Pricing", "")}
+                {link.label}
               </a>
             ))}
           </div>
@@ -109,7 +109,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="block px-3 py-2.5 rounded-lg text-base font-medium text-neutral-600 hover:text-blue-600 hover:bg-neutral-50 transition-all"
               >
-                {link.label.replace(" Pricing", "")}
+                {link.label}
               </a>
             ))}
             <div className="pt-4 border-t border-neutral-100 flex flex-col gap-2">
