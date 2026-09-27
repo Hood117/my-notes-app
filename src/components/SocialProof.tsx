@@ -75,12 +75,9 @@ export default function SocialProof() {
             <BadgeCheck size={14} className="text-blue-600 dark:text-blue-400" />
             Social Proof
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 dark:text-white mt-1 mb-3 transition-colors">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 dark:text-white mt-1 transition-colors">
             Loved by Builders, Writers, and Teams
           </h2>
-          <p className="text-base text-neutral-600 dark:text-neutral-400 font-sans font-light transition-colors leading-relaxed">
-            Discover why thousands of professionals rely on My Notes every day to capture thoughts and collaborate with zero friction.
-          </p>
         </div>
 
         {/* 3 Glass-Morphism Cards Grid */}
@@ -160,23 +157,6 @@ export default function SocialProof() {
               </div>
             </motion.div>
           ))}
-        </div>
-
-        {/* Trust Badges Bar */}
-        <div className="mt-14 pt-8 border-t border-neutral-200/60 dark:border-neutral-800/70 flex flex-wrap items-center justify-center gap-8 sm:gap-16 text-center text-xs text-neutral-500 dark:text-neutral-400">
-          <div className="flex items-center gap-2">
-            <span className="font-display font-bold text-neutral-900 dark:text-white text-base">4.9/5</span>
-            <span>Average rating across 1,200+ reviews</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="font-medium text-neutral-700 dark:text-neutral-300">99.9% Uptime</span>
-            <span>with local-first caching</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="font-display font-bold text-neutral-900 dark:text-white text-base">0 Clutter</span>
-            <span>Designed for pure focus</span>
-          </div>
         </div>
       </div>
     </section>

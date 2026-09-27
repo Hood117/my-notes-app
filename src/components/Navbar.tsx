@@ -35,7 +35,7 @@ export default function Navbar() {
       id="main-navbar"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "glass-panel dark:glass-panel-dark bg-white/85 dark:bg-neutral-900/85 border-b border-neutral-200/50 dark:border-neutral-800/80 shadow-sm py-3"
+          ? "bg-white/80 dark:bg-neutral-950/80 backdrop-blur-md border-b border-neutral-200/60 dark:border-neutral-800/80 shadow-xs py-3"
           : "bg-transparent py-5"
       }`}
     >
